@@ -9,17 +9,14 @@ import requests
 import os
 
 app = Flask(__name__)
-
 UPLOAD_FOLDER = './static/pics'
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = os.environ.get("WTF_KEY")
-
 Bootstrap(app)
 
 
 # CREATE DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///books_2021.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///books_2021.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
