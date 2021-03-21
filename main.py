@@ -4,20 +4,21 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, NumberRange
-import requests
 from werkzeug.utils import secure_filename
 import os
 
 app = Flask(__name__)
+
 UPLOAD_FOLDER = './static/pics'
-WTF_KEY = os.environ.get("WTF_KEY")
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SECRET_KEY'] = WTF_KEY
+app.config['SECRET_KEY'] = os.environ.get("WTF_KEY")
+
 Bootstrap(app)
 
 
 # CREATE DB
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///books_2021.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///books_2021.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
