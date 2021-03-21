@@ -10,9 +10,9 @@ import os
 
 app = Flask(__name__)
 UPLOAD_FOLDER = './static/pics'
-SECRET_KEY = os.environ.get("WTF_KEY")
+WTF_KEY = os.environ.get("WTF_KEY")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SECRET_KEY'] = SECRET_KEY
+app.config['SECRET_KEY'] = WTF_KEY
 Bootstrap(app)
 
 
