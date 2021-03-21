@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, NumberRange
 from werkzeug.utils import secure_filename
+import requests
 import os
 
 app = Flask(__name__)
