@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="photo-gallery">
+        <div class="container">
+            <div class="">
+                <h3 id="index_title" class="text-center">Books 2021</h3>
+                <h4 id="index_text" class="text-center">Nyunyi's photogenic reading list</h4>
+            </div>
+            <div class="row photos">
+                {% for pic in pics %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="static/{{pic}}" data-lightbox="photos"><img class="img-fluid" src="static/{{pic}}"></a></div>
+                {% endfor %}
+            </div>
+            <div class="text-center">
+                <a id="upload_link" class="btn btn-outline-dark" href="{{ url_for('upload_file') }}">Upload</a>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+{% endblock %}

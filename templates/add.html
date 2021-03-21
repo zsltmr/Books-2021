@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+<!--{% import "bootstrap/wtf.html" as wtf %}-->
+
+<!--{% block styles %}-->
+<!--    {{super()}}-->
+<!--{% endblock %}-->
+
+{% block content %}
+
+    <div class="container">
+        <h4 class="page_header">Add a new book to the database</h4>
+        <form method="POST" action="{{ url_for('add_book') }}" novalidate>
+            {{ form.csrf_token }}
+            <p>
+                {{ form.number.label }} <br> {{ form.number(size=50) }} <br>
+                {% for err in form.number.errors %}
+                <span class="validation_message"> {{ err }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.title.label }} <br> {{ form.title(size=50) }} <br>
+                {% for err in form.title.errors %}
+                <span class="validation_message">{{ err }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.author.label }} <br> {{ form.author(size=50) }} <br>
+                {% for err in form.author.errors %}
+                <span class="validation_message">{{ err }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.year.label }} <br> {{ form.year(size=50) }} <br>
+                {% for err in form.year.errors %}
+                <span class="validation_message">{{ err }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.pages.label }} <br> {{ form.pages(size=50) }} <br>
+                {% for err in form.pages.errors %}
+                <span class="validation_message">{{ err }}</span>
+                {% endfor %}
+            </p>
+            <input class="btn btn-outline-dark" type="submit" value="Add Book">
+            <a class="btn btn-outline-secondary" href="{{ url_for('show_list') }}">Back</a>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+
+<!--<div class="container">-->
+<!--      <h4 class="page_header">Add a new book to the database</h4>-->
+<!--      {{ wtf.quick_form(form) }}-->
+<!--</div>-->

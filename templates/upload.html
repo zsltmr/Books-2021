@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container upload_form">
+
+    <h4 class="page_header">Upload a book photo</h4>
+
+    <form method=post enctype=multipart/form-data>
+      <div class="form-group">
+        <input type=file name=file>
+          <br>
+          <br>
+        <input class="btn btn-outline-dark" type=submit value=Upload>
+        <a class="btn btn-outline-secondary" href="{{ url_for('home') }}">Back</a>
+      </div>
+    </form>
+</div>
+
+{% endblock %}
+
+
+
+
+
